@@ -1,0 +1,75 @@
+$ python --version
+Python 3.15.1
+$ python -m unittest -v
+test_exercice_4 (test_numeration.TestAddition.test_exercice_4)
+0110 1011 + 0011 0110 = 1010 0001 (107 + 54 = 161), sans retenue sortante. ... ok
+test_l_addition_colonne_par_colonne_est_juste_sur_toutes_les_paires_d_octets (test_numeration.TestAddition.test_l_addition_colonne_par_colonne_est_juste_sur_toutes_les_paires_d_octets)
+65 536 paires : somme sur 8 bits et retenue sortante, contre l'addition de Python. ... ok
+test_groupes (test_numeration.TestAffichage.test_groupes)
+Les bits s'affichent par paquets de 4, en partant de la droite. ... ok
+test_exercice_1_156_en_binaire (test_numeration.TestConversions.test_exercice_1_156_en_binaire)
+156 = 1001 1100, en huit divisions par 2. ... ok
+test_exercice_2_1011_0110_en_decimal (test_numeration.TestConversions.test_exercice_2_1011_0110_en_decimal)
+1011 0110 = 128 + 32 + 16 + 4 + 2 = 182. ... ok
+test_exercice_3_hexadecimal (test_numeration.TestConversions.test_exercice_3_hexadecimal)
+1011 0110 = B6 ; 3F = 0011 1111 = 63 ; 2026 = 7EA. ... ok
+test_les_divisions_par_2_donnent_bin_de_python (test_numeration.TestConversions.test_les_divisions_par_2_donnent_bin_de_python)
+De 0 a 4 095, la methode des divisions successives donne exactement bin(n). ... ok
+test_les_paquets_de_4_bits_donnent_hex_de_python (test_numeration.TestConversions.test_les_paquets_de_4_bits_donnent_hex_de_python)
+La methode des paquets de 4 bits, dans les deux sens, contre hex(). ... ok
+test_toutes_les_bases_de_2_a_16 (test_numeration.TestConversions.test_toutes_les_bases_de_2_a_16)
+L'aller-retour vers_base puis depuis_base retombe sur le nombre, et int(x, base) est d'accord. ... ok
+test_un_chiffre_impossible_est_refuse (test_numeration.TestConversions.test_un_chiffre_impossible_est_refuse)
+« 2 » n'existe pas en binaire, « G » pas en hexadecimal : erreur, pas de resultat faux. ... ok
+test_exercice_7 (test_numeration.TestDebordement.test_exercice_7)
+100 + 50 = 1001 0110, lu -106, avec V = 1 et sans retenue sortante. ... ok
+test_v_dit_exactement_quand_le_resultat_signe_est_faux (test_numeration.TestDebordement.test_v_dit_exactement_quand_le_resultat_signe_est_faux)
+65 536 paires d'octets signes : V = 1 si et seulement si la vraie somme sort de -128..127 ; 16 384 cas. ... ok
+test_exercice_5_les_trois_ecritures_de_moins_5 (test_numeration.TestNegatifs.test_exercice_5_les_trois_ecritures_de_moins_5)
+-5 : 1000 0101, 1111 1010, 1111 1011. ... ok
+test_exercice_6_le_meme_octet_vaut_255_ou_moins_1 (test_numeration.TestNegatifs.test_exercice_6_le_meme_octet_vaut_255_ou_moins_1)
+1111 1111 : 255 en non signe, -1 en signe ; 1000 0000 : 128 ou -128. ... ok
+test_hors_plage_refuse (test_numeration.TestNegatifs.test_hors_plage_refuse)
+128 ne tient pas sur 8 bits signes, ni -128 en signe et valeur absolue : erreur, pas de troncature. ... ok
+test_la_lecture_signee_est_celle_de_int_from_bytes (test_numeration.TestNegatifs.test_la_lecture_signee_est_celle_de_int_from_bytes)
+Chaque octet lu en complement a deux, contre int.from_bytes(signed=True). ... ok
+test_le_complement_a_deux_est_celui_du_processeur (test_numeration.TestNegatifs.test_le_complement_a_deux_est_celui_du_processeur)
+De -128 a 127 : x & 0xFF est le complement a deux que la machine stocke. ... ok
+test_le_piege_seul_moins_128_n_a_pas_d_oppose (test_numeration.TestNegatifs.test_le_piege_seul_moins_128_n_a_pas_d_oppose)
+Inverser et ajouter 1 donne -x pour toutes les valeurs de 8 bits sauf une : -128 redonne -128. ... ok
+test_les_plages (test_numeration.TestNegatifs.test_les_plages)
+n bits : 0 a 2^n - 1, ou -2^(n-1) a 2^(n-1) - 1. ... ok
+test_une_largeur_trop_petite_est_refusee (test_numeration.TestNegatifs.test_une_largeur_trop_petite_est_refusee)
+Signe et valeur absolue, complement a un : il faut au moins 2 bits (le signe, puis la valeur). ... ok
+test_exercice_8 (test_numeration.TestVirgule.test_exercice_8)
+0,75 = 0,11 (fini) ; 0,1 = 0,0(0011) (periodique). ... ok
+test_exercice_9_moins_6_25 (test_numeration.TestVirgule.test_exercice_9_moins_6_25)
+-6,25 : signe 1, exposant 1000 0001, mantisse 1001 0…, soit C0C80000, comme struct. ... ok
+test_l_infini_et_le_zero_negatif (test_numeration.TestVirgule.test_l_infini_et_le_zero_negatif)
+1e39 et -1e40 deviennent +inf et -inf ; -0.0 garde son signe (80000000). ... ok
+test_la_valeur_relue_est_celle_de_struct (test_numeration.TestVirgule.test_la_valeur_relue_est_celle_de_struct)
+Lire un code 32 bits redonne la valeur exacte que struct.unpack donne. ... ok
+test_le_0_1_stocke (test_numeration.TestVirgule.test_le_0_1_stocke)
+0,1 en simple : 3DCCCCCD = 0,100000001490116119384765625 ; en double, 0.1 + 0.2 != 0.3. ... ok
+test_le_codage_flottant_est_celui_de_struct (test_numeration.TestVirgule.test_le_codage_flottant_est_celui_de_struct)
+20 000 doubles au hasard (normaux, denormalises, trop petits, trop grands) : meme code que struct. ... ok
+test_nan_est_refuse (test_numeration.TestVirgule.test_nan_est_refuse)
+NaN n'a pas de codage dans ce programme : erreur claire. ... ok
+test_seuls_les_denominateurs_puissance_de_2_s_ecrivent_en_binaire_fini (test_numeration.TestVirgule.test_seuls_les_denominateurs_puissance_de_2_s_ecrivent_en_binaire_fini)
+k/d avec d de 2 a 64 : developpement fini si et seulement si d est une puissance de 2 (fraction reduite). ... ok
+test_une_periode_qui_remplit_juste_la_limite_est_trouvee (test_numeration.TestVirgule.test_une_periode_qui_remplit_juste_la_limite_est_trouvee)
+1/3 = 0,(01) : la periode tient pile dans 2 bits, elle doit etre reconnue. ... ok
+
+----------------------------------------------------------------------
+Ran 29 tests in 4.847s
+
+OK
+
+$ python --version
+Python 3.11.9
+$ python -m unittest
+.............................
+----------------------------------------------------------------------
+Ran 29 tests in 6.145s
+
+OK
